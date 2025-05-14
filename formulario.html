@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración Sistema de Citas - Budadog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 0;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="time"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 30px auto;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #4CAF50;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configuración Sistema de Citas - Budadog</h1>
+    <p>Este formulario nos ayudará a configurar el sistema de citas más adecuado para Budadog. Por favor, responde todas las preguntas para poder ofrecerte la mejor solución.</p>
+
+    <form id="budadogForm" action="https://formsubmit.co/angeltoribiorodriguez@gmail.com" method="POST">
+        <!-- Configuración de FormSubmit -->
+        <input type="hidden" name="_subject" value="Nueva respuesta del formulario Budadog">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://angeltoribiorodriguez.github.io/budadog-form/thanks.html">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="section">
+            <h2>1. Información de Cuentas</h2>
+            <div class="question">
+                <label>¿Tienes una cuenta de Google (Gmail) que uses para el negocio?</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="google_account" value="yes" required> Sí, la tengo</label>
+                    <label><input type="radio" name="google_account" value="no"> No, necesito crear una nueva</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Calendario de Jano</h2>
+            <div class="question">
+                <label>¿Qué días de la semana trabaja?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="jano_days" value="Lunes"> Lunes</label>
+                    <label><input type="checkbox" name="jano_days" value="Martes"> Martes</label>
+                    <label><input type="checkbox" name="jano_days" value="Miércoles"> Miércoles</label>
+                    <label><input type="checkbox" name="jano_days" value="Jueves"> Jueves</label>
+                    <label><input type="checkbox" name="jano_days" value="Viernes"> Viernes</label>
+                    <label><input type="checkbox" name="jano_days" value="Sábado"> Sábado</label>
+                    <label><input type="checkbox" name="jano_days" value="Domingo"> Domingo</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Horario de trabajo:</label>
+                <input type="time" name="jano_start_time" required>
+                <input type="time" name="jano_end_time" required>
+            </div>
+            <div class="question">
+                <label>Duración de las sesiones:</label>
+                <input type="number" name="jano_home_duration" placeholder="Sesiones a domicilio (minutos)" required>
+                <input type="number" name="jano_farm_duration" placeholder="Sesiones en la finca (minutos)" required>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Calendario de Alejandro</h2>
+            <div class="question">
+                <label>¿Qué días de la semana trabaja?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="ale_days" value="Lunes"> Lunes</label>
+                    <label><input type="checkbox" name="ale_days" value="Martes"> Martes</label>
+                    <label><input type="checkbox" name="ale_days" value="Miércoles"> Miércoles</label>
+                    <label><input type="checkbox" name="ale_days" value="Jueves"> Jueves</label>
+                    <label><input type="checkbox" name="ale_days" value="Viernes"> Viernes</label>
+                    <label><input type="checkbox" name="ale_days" value="Sábado"> Sábado</label>
+                    <label><input type="checkbox" name="ale_days" value="Domingo"> Domingo</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Horario de trabajo:</label>
+                <input type="time" name="ale_start_time" required>
+                <input type="time" name="ale_end_time" required>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Calendario de la Finca</h2>
+            <div class="question">
+                <label>¿Qué días está disponible la finca?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="farm_days" value="Lunes"> Lunes</label>
+                    <label><input type="checkbox" name="farm_days" value="Martes"> Martes</label>
+                    <label><input type="checkbox" name="farm_days" value="Miércoles"> Miércoles</label>
+                    <label><input type="checkbox" name="farm_days" value="Jueves"> Jueves</label>
+                    <label><input type="checkbox" name="farm_days" value="Viernes"> Viernes</label>
+                    <label><input type="checkbox" name="farm_days" value="Sábado"> Sábado</label>
+                    <label><input type="checkbox" name="farm_days" value="Domingo"> Domingo</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Horario de la finca:</label>
+                <input type="time" name="farm_start_time" required>
+                <input type="time" name="farm_end_time" required>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Tipos de Servicios</h2>
+            <div class="question">
+                <label>¿Qué tipos de sesiones ofrecen?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="service_types" value="Educación para cachorros"> Educación para cachorros</label>
+                    <label><input type="checkbox" name="service_types" value="Clases individuales"> Clases individuales</label>
+                    <label><input type="checkbox" name="service_types" value="Clases grupales"> Clases grupales</label>
+                    <label><input type="checkbox" name="service_types" value="Otros"> Otros</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Precios:</label>
+                <input type="number" name="puppy_price" placeholder="Educación para cachorros (€)" required>
+                <input type="number" name="individual_price" placeholder="Clases individuales (€)" required>
+                <input type="number" name="group_price" placeholder="Clases grupales (€)" required>
+                <input type="number" name="farm_price" placeholder="Reserva de finca (€)" required>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. Emails Automáticos</h2>
+            <div class="question">
+                <label>¿Qué emails quieres que se envíen automáticamente?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="auto_emails" value="Confirmación de reserva"> Confirmación de reserva</label>
+                    <label><input type="checkbox" name="auto_emails" value="Recordatorio 24h antes"> Recordatorio 24h antes</label>
+                    <label><input type="checkbox" name="auto_emails" value="Instrucciones de llegada"> Instrucciones de llegada</label>
+                    <label><input type="checkbox" name="auto_emails" value="Email de seguimiento"> Email de seguimiento</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. Notificaciones</h2>
+            <div class="question">
+                <label>¿Cómo quieres recibir las notificaciones?</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="notifications" value="Email" required> Email</label>
+                    <label><input type="radio" name="notifications" value="Mensaje al teléfono"> Mensaje al teléfono</label>
+                    <label><input type="radio" name="notifications" value="Ambas"> Ambas</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. Observaciones Adicionales</h2>
+            <div class="question">
+                <textarea name="additional_notes" rows="4" placeholder="Por favor, añade cualquier otra información que consideres importante"></textarea>
+            </div>
+        </div>
+
+        <button type="submit">Enviar Formulario</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        ¡Gracias por completar el formulario! Te contactaremos pronto.
+    </div>
+
+    <script>
+        document.getElementById('budadogForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            fetch('https://formsubmit.co/angeltoribiorodriguez@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    this.reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html> 
