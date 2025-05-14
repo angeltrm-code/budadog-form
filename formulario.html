@@ -137,12 +137,12 @@
 </head>
 <body style="background-color: #ff6600; color: #111;">
     <div style="text-align:center; margin-bottom: 30px;">
-        <img src="BudadogLogo.png" alt="Logo Budadog" style="max-width:180px; margin-bottom: 10px;">
+        <img src="BudadogLogo.png" alt="Logo Budadog" style="max-width:180px; margin-bottom: 10px; border: 4px solid #fff; border-radius: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
     </div>
-    <h1 style="color:#111;">Análisis de Necesidades - Budadog</h1>
-    <p class="intro-text">Hola Alejandro y Jano, este formulario nos ayudará a encontrar la mejor manera de gestionar vuestras citas y emails. No os preocupéis si no entendéis alguna pregunta, podéis dejarla en blanco y os ayudaremos a completarla.</p>
+    <h1 style="color:#111; text-shadow: 1px 1px 0 #fff, 2px 2px 8px #d35400; letter-spacing: 1px;">Análisis de Necesidades - Budadog</h1>
+    <p class="intro-text" style="background: #fff3e0; border-left: 6px solid #d35400; border-radius: 8px; padding: 18px; color: #d35400; font-weight: bold;">Hola Alejandro y Jano, este formulario nos ayudará a encontrar la mejor manera de gestionar vuestras citas y emails. No os preocupéis si no entendéis alguna pregunta, podéis dejarla en blanco y os ayudaremos a completarla.</p>
 
-    <form id="budadogForm" action="https://formsubmit.co/angeltoribiorodriguez@gmail.com" method="POST">
+    <form id="budadogForm" action="https://formsubmit.co/angeltoribiorodriguez@gmail.com" method="POST" style="border: 3px solid #fff3e0; border-radius: 18px; box-shadow: 0 6px 32px rgba(0,0,0,0.10); background: #fff; padding-top: 10px;">
         <!-- Configuración de FormSubmit -->
         <input type="hidden" name="_subject" value="Nueva respuesta del formulario Budadog">
         <input type="hidden" name="_template" value="table">
@@ -336,32 +336,9 @@
             </div>
         </div>
 
-        <button type="submit">Enviar Formulario</button>
+        <button type="submit" style="background: linear-gradient(90deg, #ff6600 60%, #d35400 100%); color: #fff; font-size: 1.3em; font-weight: bold; border: none; border-radius: 10px; padding: 18px 50px; margin: 40px auto; box-shadow: 0 2px 10px rgba(0,0,0,0.10); letter-spacing: 2px;">Enviar Formulario</button>
     </form>
 
-    <div class="success-message" id="successMessage">
-        ¡Gracias por completar el formulario! Te contactaremos pronto.
-    </div>
-
-    <script>
-        document.getElementById('budadogForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            
-            fetch('https://formsubmit.co/angeltoribiorodriguez@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    this.reset();
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+    <div class="success-message" id="successMessage" style="display:none;"></div>
 </body>
 </html> 
