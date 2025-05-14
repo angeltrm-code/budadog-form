@@ -3,91 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración Sistema de Citas - Budadog</title>
+    <title>Análisis de Necesidades - Budadog</title>
     <style>
+        :root {
+            --primary-color: #e67e22;
+            --primary-dark: #d35400;
+            --text-color: #2c3e50;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
-            background-color: #f5f5f5;
+            background-color: var(--light-bg);
+            color: var(--text-color);
         }
         .section {
             margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 25px;
+            border: none;
+            border-radius: 10px;
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
         h1 {
-            color: #333;
+            color: var(--text-color);
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 300;
         }
         h2 {
-            color: #444;
+            color: var(--text-color);
             margin-top: 0;
-            border-bottom: 2px solid #4CAF50;
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
+            font-weight: 400;
         }
         .question {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
-            color: #555;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-size: 1.1em;
         }
         input[type="text"],
         input[type="number"],
         input[type="time"],
         textarea {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 6px;
             box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="time"]:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
         }
         .checkbox-group {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .checkbox-group label {
             display: inline-block;
-            margin-right: 15px;
-            margin-bottom: 8px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 8px;
         }
         button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.1em;
             display: block;
-            margin: 30px auto;
+            margin: 40px auto;
             transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: var(--primary-dark);
         }
         .success-message {
             display: none;
             text-align: center;
-            color: #4CAF50;
+            color: #27ae60;
             margin: 20px 0;
-            padding: 10px;
+            padding: 15px;
             background-color: #e8f5e9;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 1.1em;
+        }
+        .intro-text {
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        .help-text {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        .cost-info {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
         }
     </style>
 </head>
-<body>
-    <h1>Configuración Sistema de Citas - Budadog</h1>
-    <p>Este formulario nos ayudará a configurar el sistema de citas más adecuado para Budadog. Por favor, responde todas las preguntas para poder ofrecerte la mejor solución.</p>
+<body style="background-color: #ff6600; color: #111;">
+    <div style="text-align:center; margin-bottom: 30px;">
+        <img src="BudadogLogo.png" alt="Logo Budadog" style="max-width:180px; margin-bottom: 10px;">
+    </div>
+    <h1 style="color:#111;">Análisis de Necesidades - Budadog</h1>
+    <p class="intro-text">Hola Alejandro y Jano, este formulario nos ayudará a encontrar la mejor manera de gestionar vuestras citas y emails. No os preocupéis si no entendéis alguna pregunta, podéis dejarla en blanco y os ayudaremos a completarla.</p>
 
     <form id="budadogForm" action="https://formsubmit.co/angeltoribiorodriguez@gmail.com" method="POST">
         <!-- Configuración de FormSubmit -->
@@ -96,134 +149,190 @@
         <input type="hidden" name="_next" value="https://angeltoribiorodriguez.github.io/budadog-form/thanks.html">
         <input type="hidden" name="_captcha" value="false">
 
-        <div class="section">
-            <h2>1. Información de Cuentas</h2>
+        <div class="section" style="background-color:#fff; color:#111;">
             <div class="question">
-                <label>¿Tienes una cuenta de Google (Gmail) que uses para el negocio?</label>
+                <label>Nombre (opcional):</label>
+                <input type="text" name="nombre" placeholder="Tu nombre">
+            </div>
+            <div class="question">
+                <label>Correo electrónico (opcional):</label>
+                <input type="text" name="correo" placeholder="Tu correo electrónico">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>1. Vuestros Calendarios</h2>
+            <div class="cost-info">
+                <p>Actualmente tenéis 3 cuentas de Calendly:</p>
+                <ul>
+                    <li>Calendario de Alejandro</li>
+                    <li>Calendario de Jano</li>
+                    <li>Calendario de la finca</li>
+                </ul>
+            </div>
+            <div class="question">
+                <label>¿Qué cosas importantes necesitáis que haga el sistema de citas?</label>
                 <div class="checkbox-group">
-                    <label><input type="radio" name="google_account" value="yes" required> Sí, la tengo</label>
-                    <label><input type="radio" name="google_account" value="no"> No, necesito crear una nueva</label>
+                    <label><input type="checkbox" name="essential_calendly" value="calendar_sync"> Que se sincronice con Google Calendar</label>
+                    <label><input type="checkbox" name="essential_calendly" value="buffer_time"> Que deje tiempo entre citas</label>
+                    <label><input type="checkbox" name="essential_calendly" value="custom_questions"> Que haga preguntas a los clientes</label>
+                    <label><input type="checkbox" name="essential_calendly" value="team_scheduling"> Que permita programar en equipo</label>
+                    <label><input type="checkbox" name="essential_calendly" value="round_robin"> Que reparta las citas automáticamente</label>
+                    <label><input type="checkbox" name="essential_calendly" value="other"> Otras cosas (especificar)</label>
+                </div>
+                <input type="text" name="essential_calendly_other" placeholder="¿Qué otras cosas necesitáis?">
+            </div>
+            <div class="question">
+                <label>¿Cómo funcionan ahora vuestras citas?</label>
+                <p class="help-text">Describe cómo gestionáis cada tipo de cita</p>
+                <strong>Citas de Jano</strong>
+                <input type="text" name="jano_domicilio" placeholder="A domicilio">
+                <input type="text" name="jano_finca" placeholder="En la finca">
+                <strong>Citas de Alejandro</strong>
+                <input type="text" name="alejandro_domicilio" placeholder="A domicilio">
+                <input type="text" name="alejandro_finca" placeholder="En la finca">
+                <strong>Reservas de la finca (sin entrenador)</strong>
+                <input type="text" name="finca_suelta" placeholder="Reservas sueltas">
+            </div>
+            <div class="question">
+                <label>¿Cuántas citas gestionáis al mes aproximadamente?</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="monthly_appointments" value="less_50" required> Menos de 50</label>
+                    <label><input type="radio" name="monthly_appointments" value="50_100"> 50-100</label>
+                    <label><input type="radio" name="monthly_appointments" value="100_200"> 100-200</label>
+                    <label><input type="radio" name="monthly_appointments" value="more_200"> Más de 200</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>Cuando alguien pide una cita, ¿necesitáis que se bloquee en varios calendarios a la vez?</label>
+                <p class="help-text">Por ejemplo, si alguien pide una cita en la finca, ¿necesitáis que se bloquee tanto en el calendario del entrenador como en el de la finca?</p>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="multi_calendar" value="yes" required> Sí, es muy importante</label>
+                    <label><input type="radio" name="multi_calendar" value="no"> No, podemos hacerlo manualmente</label>
+                    <label><input type="radio" name="multi_calendar" value="sometimes"> Solo a veces</label>
+                </div>
+                <textarea name="multi_calendar_details" rows="2" placeholder="Explicadnos en qué casos necesitáis que se bloqueen varios calendarios"></textarea>
+            </div>
+            <div class="question">
+                <label>¿Necesitáis que los clientes puedan ver vuestra disponibilidad en tiempo real?</label>
+                <p class="help-text">Por ejemplo, que vean directamente qué horas están libres para reservar</p>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="real_time_availability" value="yes" required> Sí, es importante</label>
+                    <label><input type="radio" name="real_time_availability" value="no"> No, pueden preguntarnos</label>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>2. Calendario de Jano</h2>
+            <h2>2. Emails Automáticos</h2>
+            <div class="cost-info">
+                <p>Actualmente usáis ActiveCampaign para enviar emails automáticos.</p>
+            </div>
             <div class="question">
-                <label>¿Qué días de la semana trabaja?</label>
+                <label>¿Qué emails automáticos necesitáis enviar?</label>
+                <p class="help-text">Marcad todos los emails que queráis que se envíen automáticamente</p>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="jano_days" value="Lunes"> Lunes</label>
-                    <label><input type="checkbox" name="jano_days" value="Martes"> Martes</label>
-                    <label><input type="checkbox" name="jano_days" value="Miércoles"> Miércoles</label>
-                    <label><input type="checkbox" name="jano_days" value="Jueves"> Jueves</label>
-                    <label><input type="checkbox" name="jano_days" value="Viernes"> Viernes</label>
-                    <label><input type="checkbox" name="jano_days" value="Sábado"> Sábado</label>
-                    <label><input type="checkbox" name="jano_days" value="Domingo"> Domingo</label>
+                    <label><input type="checkbox" name="email_types" value="booking_confirmation"> Confirmación cuando alguien pide cita</label>
+                    <label><input type="checkbox" name="email_types" value="reminder_24h"> Recordatorio un día antes</label>
+                    <label><input type="checkbox" name="email_types" value="reminder_1h"> Recordatorio una hora antes</label>
+                    <label><input type="checkbox" name="email_types" value="follow_up"> Email después de la cita</label>
+                    <label><input type="checkbox" name="email_types" value="instructions"> Instrucciones de cómo llegar</label>
+                    <label><input type="checkbox" name="email_types" value="other"> Otros emails (especificar)</label>
+                </div>
+                <input type="text" name="email_types_other" placeholder="¿Qué otros emails necesitáis?">
+            </div>
+            <div class="question">
+                <label>¿Cuántos emails automáticos enviáis al mes aproximadamente?</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="monthly_emails" value="less_100" required> Menos de 100</label>
+                    <label><input type="radio" name="monthly_emails" value="100_500"> 100-500</label>
+                    <label><input type="radio" name="monthly_emails" value="500_1000"> 500-1000</label>
+                    <label><input type="radio" name="monthly_emails" value="more_1000"> Más de 1000</label>
                 </div>
             </div>
             <div class="question">
-                <label>Horario de trabajo:</label>
-                <input type="time" name="jano_start_time" required>
-                <input type="time" name="jano_end_time" required>
-            </div>
-            <div class="question">
-                <label>Duración de las sesiones:</label>
-                <input type="number" name="jano_home_duration" placeholder="Sesiones a domicilio (minutos)" required>
-                <input type="number" name="jano_farm_duration" placeholder="Sesiones en la finca (minutos)" required>
+                <label>¿Qué cosas importantes necesitáis que haga el sistema de emails?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="essential_activecampaign" value="email_templates"> Que podamos personalizar los emails</label>
+                    <label><input type="checkbox" name="essential_activecampaign" value="automation"> Que envíe emails automáticamente</label>
+                    <label><input type="checkbox" name="essential_activecampaign" value="segmentation"> Que organice los contactos</label>
+                    <label><input type="checkbox" name="essential_activecampaign" value="analytics"> Que nos diga si los clientes abren los emails</label>
+                    <label><input type="checkbox" name="essential_activecampaign" value="other"> Otras cosas (especificar)</label>
+                </div>
+                <input type="text" name="essential_activecampaign_other" placeholder="¿Qué otras cosas necesitáis?">
             </div>
         </div>
 
         <div class="section">
-            <h2>3. Calendario de Alejandro</h2>
+            <h2>3. Herramientas que Usáis</h2>
             <div class="question">
-                <label>¿Qué días de la semana trabaja?</label>
+                <label>¿Qué herramientas usáis actualmente?</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="ale_days" value="Lunes"> Lunes</label>
-                    <label><input type="checkbox" name="ale_days" value="Martes"> Martes</label>
-                    <label><input type="checkbox" name="ale_days" value="Miércoles"> Miércoles</label>
-                    <label><input type="checkbox" name="ale_days" value="Jueves"> Jueves</label>
-                    <label><input type="checkbox" name="ale_days" value="Viernes"> Viernes</label>
-                    <label><input type="checkbox" name="ale_days" value="Sábado"> Sábado</label>
-                    <label><input type="checkbox" name="ale_days" value="Domingo"> Domingo</label>
+                    <label><input type="checkbox" name="herramientas" value="crm"> Sistema de gestión de clientes</label>
+                    <label><input type="checkbox" name="herramientas" value="website"> Página web</label>
+                    <label><input type="checkbox" name="herramientas" value="billing"> Facturación</label>
+                    <label><input type="checkbox" name="herramientas" value="webforms"> Formularios web</label>
+                    <label><input type="checkbox" name="herramientas" value="online_booking"> Reservas online</label>
+                    <label><input type="checkbox" name="herramientas" value="otro"> Otro (especificar)</label>
                 </div>
+                <input type="text" name="herramientas_otro" placeholder="¿Qué otras herramientas usáis?">
             </div>
             <div class="question">
-                <label>Horario de trabajo:</label>
-                <input type="time" name="ale_start_time" required>
-                <input type="time" name="ale_end_time" required>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>4. Calendario de la Finca</h2>
-            <div class="question">
-                <label>¿Qué días está disponible la finca?</label>
+                <label>¿Os gustaría que los clientes reserven directamente desde vuestra web o preferís enviarles un enlace?</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="farm_days" value="Lunes"> Lunes</label>
-                    <label><input type="checkbox" name="farm_days" value="Martes"> Martes</label>
-                    <label><input type="checkbox" name="farm_days" value="Miércoles"> Miércoles</label>
-                    <label><input type="checkbox" name="farm_days" value="Jueves"> Jueves</label>
-                    <label><input type="checkbox" name="farm_days" value="Viernes"> Viernes</label>
-                    <label><input type="checkbox" name="farm_days" value="Sábado"> Sábado</label>
-                    <label><input type="checkbox" name="farm_days" value="Domingo"> Domingo</label>
+                    <label><input type="radio" name="preferencia_reserva" value="web"> Reservar desde la web</label>
+                    <label><input type="radio" name="preferencia_reserva" value="enlace"> Recibir un enlace para reservar</label>
+                    <label><input type="radio" name="preferencia_reserva" value="indiferente"> Indiferente</label>
+                    <label><input type="radio" name="preferencia_reserva" value="otro"> Otro (especificar)</label>
                 </div>
+                <input type="text" name="preferencia_reserva_otro" placeholder="Otro detalle">
             </div>
             <div class="question">
-                <label>Horario de la finca:</label>
-                <input type="time" name="farm_start_time" required>
-                <input type="time" name="farm_end_time" required>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>5. Tipos de Servicios</h2>
-            <div class="question">
-                <label>¿Qué tipos de sesiones ofrecen?</label>
+                <label>¿Os gustaría una solución que podáis gestionar vosotros mismos o preferís que sea más sencilla?</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="service_types" value="Educación para cachorros"> Educación para cachorros</label>
-                    <label><input type="checkbox" name="service_types" value="Clases individuales"> Clases individuales</label>
-                    <label><input type="checkbox" name="service_types" value="Clases grupales"> Clases grupales</label>
-                    <label><input type="checkbox" name="service_types" value="Otros"> Otros</label>
-                </div>
-            </div>
-            <div class="question">
-                <label>Precios:</label>
-                <input type="number" name="puppy_price" placeholder="Educación para cachorros (€)" required>
-                <input type="number" name="individual_price" placeholder="Clases individuales (€)" required>
-                <input type="number" name="group_price" placeholder="Clases grupales (€)" required>
-                <input type="number" name="farm_price" placeholder="Reserva de finca (€)" required>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>6. Emails Automáticos</h2>
-            <div class="question">
-                <label>¿Qué emails quieres que se envíen automáticamente?</label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="auto_emails" value="Confirmación de reserva"> Confirmación de reserva</label>
-                    <label><input type="checkbox" name="auto_emails" value="Recordatorio 24h antes"> Recordatorio 24h antes</label>
-                    <label><input type="checkbox" name="auto_emails" value="Instrucciones de llegada"> Instrucciones de llegada</label>
-                    <label><input type="checkbox" name="auto_emails" value="Email de seguimiento"> Email de seguimiento</label>
+                    <label><input type="radio" name="technical_knowledge" value="yes" required> Podemos aprender a gestionarla</label>
+                    <label><input type="radio" name="technical_knowledge" value="no"> Preferimos que sea muy sencilla</label>
+                    <label><input type="radio" name="technical_knowledge" value="learning"> Estamos dispuestos a aprender</label>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>7. Notificaciones</h2>
+            <h2>4. Presupuesto y Preferencias</h2>
+            <div class="cost-info">
+                <p>Actualmente pagáis:</p>
+                <ul>
+                    <li>Calendly: 450€ al año (3 cuentas)</li>
+                    <li>ActiveCampaign: 450€ al año</li>
+                    <li>Total: 900€ al año</li>
+                </ul>
+            </div>
             <div class="question">
-                <label>¿Cómo quieres recibir las notificaciones?</label>
+                <label>¿Qué es más importante para vosotros?</label>
                 <div class="checkbox-group">
-                    <label><input type="radio" name="notifications" value="Email" required> Email</label>
-                    <label><input type="radio" name="notifications" value="Mensaje al teléfono"> Mensaje al teléfono</label>
-                    <label><input type="radio" name="notifications" value="Ambas"> Ambas</label>
+                    <label><input type="checkbox" name="priorities" value="cost"> Ahorrar dinero</label>
+                    <label><input type="checkbox" name="priorities" value="simplicity"> Que sea fácil de usar</label>
+                    <label><input type="checkbox" name="priorities" value="features"> Que tenga todas las funciones que necesitamos</label>
+                    <label><input type="checkbox" name="priorities" value="support"> Que tenga buen soporte técnico</label>
+                    <label><input type="checkbox" name="priorities" value="privacy"> Que sea segura y privada</label>
+                </div>
+            </div>
+            <div class="question">
+                <label>¿Cuánto estaríais dispuestos a pagar por una solución que cubra todas vuestras necesidades?</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="budget" value="less_300" required> Menos de 300€ al año</label>
+                    <label><input type="radio" name="budget" value="300_600"> Entre 300€ y 600€ al año</label>
+                    <label><input type="radio" name="budget" value="600_900"> Entre 600€ y 900€ al año</label>
+                    <label><input type="radio" name="budget" value="more_900"> Más de 900€ al año</label>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2>8. Observaciones Adicionales</h2>
+            <h2>5. Información Adicional</h2>
             <div class="question">
-                <textarea name="additional_notes" rows="4" placeholder="Por favor, añade cualquier otra información que consideres importante"></textarea>
+                <label>¿Algún detalle más que no hayamos cubierto sobre esto?</label>
+                <textarea name="additional_info" rows="4" placeholder="Cualquier información que consideréis importante"></textarea>
             </div>
         </div>
 
